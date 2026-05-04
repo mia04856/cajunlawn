@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cajun Lawn & Landscape Guys | Lafayette, LA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3a1f;
+    --green-mid: #2d6a35;
+    --green-bright: #4caf50;
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --dark: #0e1f10;
+    --gray: #6b7280;
+    --light-bg: #f9f6f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(14,31,16,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,168,75,0.25);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .nav-logo span { display: block; font-size: 0.75rem; color: var(--cream); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(14,31,16,0.88) 0%, rgba(26,58,31,0.75) 50%, rgba(14,31,16,0.92) 100%),
+      url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--light-bg), transparent);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(200,168,75,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    max-width: 750px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: 1.15rem;
+    color: rgba(245,240,232,0.85);
+    max-width: 520px;
+    font-weight: 300;
+    line-height: 1.7;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 1rem 2.2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 2px solid rgba(245,240,232,0.5);
+    color: var(--cream);
+    padding: 1rem 2.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+  .hero-stars span { color: rgba(245,240,232,0.7); font-size: 0.85rem; }
+  .hero-stars strong { color: var(--cream); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--green-deep);
+    max-width: 600px;
+  }
+  .section-title em { font-style: normal; color: var(--gold); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: #e0ddd6;
+    border: 1.5px solid #e0ddd6;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--green-deep); }
+  .service-card:hover .service-icon { background: rgba(200,168,75,0.15); color: var(--gold); }
+  .service-card:hover h3 { color: var(--white); }
+  .service-card:hover p { color: rgba(245,240,232,0.7); }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--light-bg);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.25s;
+    color: var(--green-mid);
+  }
+  .service-icon svg { display: block; }
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    margin-bottom: 0.6rem;
+    transition: color 0.25s;
+  }
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.65;
+    transition: color 0.25s;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--green-deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-img {
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .about-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+  }
+  .about-img-badge {
+    position: absolute;
+    bottom: 1.5rem; right: -1rem;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+  }
+  .about-img-badge .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    display: block;
+  }
+  .about-img-badge .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .about-content .section-label { color: var(--gold); }
+  .about-content .section-title { color: var(--white); max-width: 100%; }
+
+  .about-text {
+    color: rgba(245,240,232,0.75);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .about-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--cream);
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  .about-feature::before {
+    content: '✓';
+    width: 22px; height: 22px;
+    background: rgba(200,168,75,0.2);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── REVIEWS ── */
+  #reviews { background: var(--cream); }
+
+  .reviews-header { margin-bottom: 3rem; text-align: center; }
+  .reviews-header .section-title { margin: 0 auto; text-align: center; }
+
+  .reviews-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0 3rem;
+  }
+  .score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--green-deep);
+    line-height: 1;
+  }
+  .score-meta { text-align: left; }
+  .score-stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 3px; }
+  .score-count { font-size: 0.82rem; color: var(--gray); margin-top: 0.2rem; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .review-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 3px;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  }
+  .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+  .review-text {
+    font-size: 0.92rem;
+    color: var(--dark);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+  .review-author {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--green-mid);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── SERVICE AREA ── */
+  #area {
+    background: var(--white);
+    text-align: center;
+  }
+  #area .section-title { margin: 0 auto 1rem; text-align: center; }
+  #area .section-label { text-align: center; }
+
+  .area-desc {
+    color: var(--gray);
+    font-size: 0.98rem;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .area-tag {
+    background: var(--light-bg);
+    border: 1px solid #d9d4c9;
+    color: var(--green-deep);
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--green-deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info .section-label { color: var(--gold); }
+  .contact-info .section-title { color: var(--white); }
+  .contact-info p {
+    color: rgba(245,240,232,0.7);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-top: 1.25rem;
+    max-width: 420px;
+  }
+
+  .contact-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--cream);
+  }
+  .contact-item-icon {
+    width: 42px; height: 42px;
+    background: rgba(200,168,75,0.15);
+    border: 1px solid rgba(200,168,75,0.35);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .contact-item-text { font-size: 0.92rem; line-height: 1.5; }
+  .contact-item-text strong { display: block; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.15rem; }
+  .contact-item-text a { color: var(--cream); text-decoration: none; }
+  .contact-item-icon svg { display: block; color: var(--gold); }
+
+  .contact-form {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+  .contact-form h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    margin-bottom: 1.75rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1.5px solid #e0ddd6;
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    color: var(--dark);
+    background: var(--light-bg);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green-mid); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--green-deep);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--green-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 2.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(200,168,75,0.2);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+  }
+  .footer-logo span { display: block; font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: rgba(245,240,232,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.15rem; }
+  footer p { font-size: 0.78rem; color: rgba(245,240,232,0.4); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    #about, #contact { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-img { display: none; }
+    .about-features { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Cajun Lawn & Landscape Guys
+    <span>Lafayette, Louisiana</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#area">Service Area</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:3373621977" class="nav-cta">(337) 362-1977</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">5.0 Rating · Lafayette's Trusted Lawn Crew</div>
+  <h1>Your Yard.<br><em>Perfected.</em></h1>
+  <p class="hero-sub">Professional lawn care, landscaping, and pressure washing serving Lafayette and surrounding South Louisiana communities.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    <a href="tel:3373621977" class="btn-outline">Call (337) 362-1977</a>
+  </div>
+  <div class="hero-stars">
+    <span class="stars">★★★★★</span>
+    <span><strong>5.0</strong> — 12 Google Reviews</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Full-Service Lawn <em>&</em> Landscape Care</h2>
+    </div>
+    <a href="#contact" class="btn-primary">Request a Quote</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2C6.5 2 2 6.5 2 12"/><path d="M2 12h10"/><path d="M12 12v10"/></svg>
+      </div>
+      <h3>Lawn Mowing & Maintenance</h3>
+      <p>Crisp, clean cuts with professional edging every visit. HOA-ready results, every time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0 0 10 10"/><path d="M8 5.5A6 6 0 0 1 18 8c0 3.5-2 5-3 6"/><path d="M12 12a6 6 0 0 0 6-6"/></svg>
+      </div>
+      <h3>Grass Seeding</h3>
+      <p>Restore bare spots or establish a lush new lawn with the right seed selection for South Louisiana.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5.2 7.2 9 11"/><path d="M2 14h6"/><path d="M5.2 20.8 9 17"/><path d="M12 22v-6"/><path d="M18.8 20.8 15 17"/><path d="M22 14h-6"/><path d="M18.8 7.2 15 11"/><circle cx="12" cy="14" r="4"/></svg>
+      </div>
+      <h3>Irrigation Repair & Maintenance</h3>
+      <p>Keep your sprinkler system running efficiently. We diagnose and fix leaks, heads, and controllers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5 10 21a2 2 0 1 1-3-1.8V8a1 1 0 0 1 2 0v9.7"/><path d="M14 13.5V8a1 1 0 0 0-2 0v3"/><path d="M9 9H5a2 2 0 0 0 0 4h4"/><path d="M18 9h-4"/><path d="M16 3a5 5 0 0 1 5 5c0 3-5 10-5 10S11 11 11 8a5 5 0 0 1 5-5z"/></svg>
+      </div>
+      <h3>Lawn Pest Control</h3>
+      <p>Protect your turf from chinch bugs, grubs, and other common Louisiana lawn pests.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18"/><path d="M3 15h18"/><path d="M5 5v14"/><path d="M19 5v14"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+      </div>
+      <h3>Mulching</h3>
+      <p>Fresh mulch for beds, borders, and trees — improves moisture retention and curb appeal.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <h3>Weed Control</h3>
+      <p>Pre- and post-emergent weed treatments to keep your lawn thick, green, and weed-free.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Yard Work & Cleanup</h3>
+      <p>Leaf removal, bed cleanups, trimming, and general yard maintenance. Put us to work.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 0 0 8 0"/></svg>
+      </div>
+      <h3>Pressure Washing</h3>
+      <p>Driveways, patios, sidewalks, and fences — blasted clean and looking brand new.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="Lawn care crew at work">
+    <div class="about-img-badge">
+      <span class="num">5.0</span>
+      <span class="label">Google Rating</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">South Louisiana's<br><em>Hardworking</em> Lawn Crew</h2>
+    <p class="about-text">At Cajun Lawn & Landscape Guys, we show up on time, work hard, and leave your property looking sharp. Based in Lafayette, we've built our reputation one yard at a time — delivering excellent work at reasonable rates across Acadiana.</p>
+    <p class="about-text" style="margin-top:1rem;">Whether it's a quick mow or a full landscaping overhaul, we bring the same attention to detail that's earned us a perfect 5-star rating.</p>
+    <div class="about-features">
+      <div class="about-feature">Licensed & Insured</div>
+      <div class="about-feature">5-Star Google Rating</div>
+      <div class="about-feature">Reliable & On-Time</div>
+      <div class="about-feature">Reasonable Rates</div>
+      <div class="about-feature">HOA-Approved Quality</div>
+      <div class="about-feature">Free Estimates</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header">
+    <div class="section-label">What Customers Say</div>
+    <h2 class="section-title">Trusted by <em>Lafayette</em> Homeowners</h2>
+  </div>
+  <div class="reviews-score">
+    <div class="score-big">5.0</div>
+    <div class="score-meta">
+      <div class="score-stars">★★★★★</div>
+      <div class="score-count">Based on 12 Google Reviews</div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Crisp lines, beautiful hedges, HOA satisfying, quality, and timely lawn care."</p>
+      <div class="review-author">Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I put this crew to work and they did an excellent job. I am very happy with the results."</p>
+      <div class="review-author">Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Excellent work at reasonable rates. Couldn't ask for more from a lawn care team."</p>
+      <div class="review-author">Google Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section id="area">
+  <div class="section-label">Where We Work</div>
+  <h2 class="section-title">Serving <em>Acadiana</em> & Surrounding Areas</h2>
+  <p class="area-desc">Based in Lafayette, we serve residential and commercial properties throughout South Louisiana.</p>
+  <div class="area-tags">
+    <span class="area-tag">Lafayette</span>
+    <span class="area-tag">Broussard</span>
+    <span class="area-tag">Youngsville</span>
+    <span class="area-tag">Scott</span>
+    <span class="area-tag">Carencro</span>
+    <span class="area-tag">Breaux Bridge</span>
+    <span class="area-tag">New Iberia</span>
+    <span class="area-tag">Opelousas</span>
+    <span class="area-tag">And More</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Ready for a <em>Better</em> Lawn?</h2>
+    <p>Contact us today for a free estimate. We'll get back to you fast and have your yard looking its best in no time.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Phone</strong>
+          <a href="tel:3373621977">(337) 362-1977</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Address</strong>
+          211 Gabriel St, Lafayette, LA 70506
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Hours</strong>
+          Open · Closes 10 PM
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </div>
+        <div class="contact-item-text">
+          <strong>Facebook</strong>
+          <a href="http://www.facebook.com/CajunLawnGuys/" target="_blank">facebook.com/CajunLawnGuys</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3>Request a Free Quote</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="John">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(337) 000-0000">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="john@email.com">
+    </div>
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select>
+        <option value="">Select a service...</option>
+        <option>Lawn Mowing & Maintenance</option>
+        <option>Grass Seeding</option>
+        <option>Irrigation Repair & Maintenance</option>
+        <option>Lawn Pest Control</option>
+        <option>Mulching</option>
+        <option>Weed Control</option>
+        <option>Yard Work & Cleanup</option>
+        <option>Pressure Washing</option>
+        <option>Multiple Services</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Tell us about your property or project..."></textarea>
+    </div>
+    <button class="form-submit" onclick="alert('Thanks! We\'ll be in touch soon. Or call us directly at (337) 362-1977.')">Send Request</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    Cajun Lawn & Landscape Guys
+    <span>211 Gabriel St · Lafayette, LA 70506</span>
+  </div>
+  <p>© 2025 Cajun Lawn & Landscape Guys · All rights reserved</p>
+</footer>
+
+</body>
+</html>
